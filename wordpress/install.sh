@@ -51,4 +51,4 @@ sudo -u www-data sed -i "s/database_name_here/$install_name/g" /srv/www/$install
 sudo -u www-data sed -i "s/username_here/$install_name/g" /srv/www/$install_name/wp-config.php
 sudo -u www-data sed -i "s/password_here/$mysql_password/g" /srv/www/$install_name/wp-config.php
 
-echo Bitte würzen sie selber! (https://api.wordpress.org/secret-key/1.1/salt/)
+echo Bitte würzen sie selber! (https://api.wordpress.org/secret-key/1.1/salt/ ---> /srv/www/$install_name/wp-config.php)
