@@ -34,7 +34,7 @@ function uninstall_all {
     done
 
     # Deinstalliere Apache, MySQL und PHP
-    sudo apt remove --purge -y apache2 mysql-server php
+    sudo apt remove --purge -y apache2 mariadb-server php
     sudo apt autoremove -y
     sudo apt clean
 }
