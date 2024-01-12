@@ -4,10 +4,6 @@
 function uninstall_single {
     read -p "Geben Sie den Namen der WordPress-Installation ein: " install_name
 
-    # Stopp Apache und MySQL
-    sudo service apache2 stop
-    sudo service mysql stop
-
     # Lösche WordPress-Dateien und Konfiguration
     sudo rm -rf /srv/www/"$install_name"
     sudo rm -f /etc/apache2/sites-available/"$install_name".conf
