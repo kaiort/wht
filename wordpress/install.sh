@@ -29,7 +29,7 @@ cat <<EOL | sudo tee /etc/apache2/sites-available/"$install_name".conf > /dev/nu
 </VirtualHost>
 EOL
 
-sudo a2ensite "$install_name"
+sudo a2ensite $install_name
 sudo a2enmod rewrite
 sudo a2dissite 000-default
 sudo service apache2 reload
@@ -44,12 +44,12 @@ sudo mysql -u root -e "FLUSH PRIVILEGES;"
 sudo service mysql start
 
 # Kopiere die WordPress-Konfigurationsdatei
-sudo -u www-data cp /srv/www/"$install_name"/wp-config-sample.php /srv/www/"$install_name"/wp-config.php
+sudo -u www-data cp /srv/www/$install_name/wp-config-sample.php /srv/www/$install_name/wp-config.php
 
 # Datenbank-Zugangsdaten in die WordPress-Konfigurationsdatei eintragen
-sudo -u www-data sed -i "s/database_name_here/$install_name/g" /srv/www/"$install_name"/wp-config.php
-sudo -u www-data sed -i "s/username_here/$install_name/g" /srv/www/"$install_name"/wp-config.php
-sudo -u www-data sed -i "s/password_here/$mysql_password/g" /srv/www/"$install_name"/wp-config.php
+sudo -u www-data sed -i "s/database_name_here/$install_name/g" /srv/www/$install_name/wp-config.php
+sudo -u www-data sed -i "s/username_here/$install_name/g" /srv/www/$install_name/wp-config.php
+sudo -u www-data sed -i "s/password_here/$mysql_password/g" /srv/www/$install_name/wp-config.php
 
 # WordPress-Salts generieren und in die Konfigurationsdatei eintragen
 sudo -u www-data curl -s https://api.wordpress.org/secret-key/1.1/salt/ | sudo -u www-data tee -a /srv/www/"$install_name"/wp-config.php > /dev/null
