@@ -14,15 +14,15 @@ sudo mv /srv/www/wordpress /srv/www/"$install_name"
 # Apache-Konfiguration erstellen
 cat <<EOL | sudo tee /etc/apache2/sites-available/"$install_name".conf > /dev/null
 <VirtualHost *:80>
-    DocumentRoot /srv/www/"$install_name"
+    DocumentRoot /srv/www/$install_name
     ServerName $domain_name
-    <Directory /srv/www/"$install_name">
+    <Directory /srv/www/$install_name>
         Options FollowSymLinks
         AllowOverride Limit Options FileInfo
         DirectoryIndex index.php
         Require all granted
     </Directory>
-    <Directory /srv/www/"$install_name"/wp-content>
+    <Directory /srv/www/$install_name/wp-content>
         Options FollowSymLinks
         Require all granted
     </Directory>
