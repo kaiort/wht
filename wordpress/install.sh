@@ -51,8 +51,4 @@ sudo -u www-data sed -i "s/database_name_here/$install_name/g" /srv/www/$install
 sudo -u www-data sed -i "s/username_here/$install_name/g" /srv/www/$install_name/wp-config.php
 sudo -u www-data sed -i "s/password_here/$mysql_password/g" /srv/www/$install_name/wp-config.php
 
-# WordPress-Salts generieren und in die Konfigurationsdatei eintragen
-sudo -u www-data curl -s https://api.wordpress.org/secret-key/1.1/salt/ | sudo -u www-data tee -a /srv/www/"$install_name"/wp-config.php > /dev/null
-
-# Platzhalter in der wp-config.php-Datei ersetzen
-sudo -u www-data sed -i "s/put your unique phrase here/$(curl -s https://api.wordpress.org/secret-key/1.1/salt/ | grep -v '_wp' | head -n 8)/" /srv/www/"$install_name"/wp-config.php
+echo Bitte würzen sie selber! (https://api.wordpress.org/secret-key/1.1/salt/)
