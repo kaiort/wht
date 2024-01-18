@@ -4,4 +4,3 @@ cd mkp224o
 ./autogen.sh
 ./configure
 make
-sudo make install
